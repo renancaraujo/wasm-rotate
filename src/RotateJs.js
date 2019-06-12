@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 
+const workerInstance = new Worker('worker.js');
 
-import WebWorker from './WebWorker'
-import Worker from './Worker'
-
-const workerInstance = new WebWorker(Worker)
 
 export default function RotateJs({ bitMapArr, width, height}){
 
