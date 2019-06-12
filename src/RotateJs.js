@@ -6,7 +6,6 @@ import Worker from './Worker'
 
 const workerInstance = new WebWorker(Worker)
 
-
 export default function RotateJs({ bitMapArr, width, height}){
 
     const [canvas, setCanvas] = useState(null)
@@ -14,14 +13,17 @@ export default function RotateJs({ bitMapArr, width, height}){
     const [start, setStart] = useState(null);
     const [end, setEnd] = useState(null);
 
+    const [loading, setLoading] = useState(false);
+
     const doRef = useCallback(canvas => {
         setCanvas(canvas)
     }, [])
 
     const onStartConverting = (e) => {
         e.preventDefault()
-        setStart(performance.now())
         setEnd(null)
+        setLoading(true)
+        setStart(performance.now())
         workerInstance.postMessage({bitMapArr, width, height})
     }
 
@@ -29,6 +31,7 @@ export default function RotateJs({ bitMapArr, width, height}){
         const newBmp = e.data 
         const arr = Uint8ClampedArray.from(newBmp)
         setEnd(performance.now())
+        setLoading(false)
 
         const image = new ImageData(arr, width, height);
 
@@ -53,6 +56,7 @@ export default function RotateJs({ bitMapArr, width, height}){
                 { width ? ( <p> { width }px x { height }px </p>) : "" }
                 
                 <br />
+                {loading ? 'wait for it...' : ''}
                 { start && end ? ( <p> { (end - start) * 0.001  } seconds </p>) : "" }
                 <br />
 
