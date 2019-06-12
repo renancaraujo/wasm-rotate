@@ -7,6 +7,8 @@ function App() {
   const [bitMapArr, setBitMapArr] = useState([]);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
+
+  
   return (
     <AppContainer>
       <Title>Pick and rotate image</Title>
@@ -78,9 +80,7 @@ const ImagePickerContainer = styled.div`
 `
 
 const HiddenCanvas = styled.canvas`
-  position: absolute;
-  pointer-events: none;
-  opacity: 0;
+  display: none;
 `
 
 export default App;

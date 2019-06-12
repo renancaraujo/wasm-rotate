@@ -9,7 +9,7 @@ export default function MyWorker(args) {
             
             const lineLength = width * pixelLength;
             const halfHeight = Math.trunc(height / 2);
-            const endArr = [...bitMapArr];
+            const endArr = Uint8ClampedArray.from([...bitMapArr]);
         
             for (let line = 0; line < halfHeight; line++) {
                 const startOfLine = line * lineLength;
@@ -24,9 +24,16 @@ export default function MyWorker(args) {
                     const oppositePixel = bitMapArr.slice(oppositePixelStart, oppositePixelEnd);
                     const targetPixel = bitMapArr.slice(pixelStart, pixelEnd);
 
-                    Array.prototype.splice.apply(endArr, [oppositePixelStart, oppositePixelEnd].concat(targetPixel));
+                    for (let item = oppositePixelStart; item < oppositePixelEnd; item++) {
+                        let is = item - oppositePixelStart;
+                        endArr[item] = targetPixel[is];
+                    }
 
-                    Array.prototype.splice.apply(endArr, [pixelStart, pixelEnd].concat(oppositePixel));
+                    for (let item = pixelStart; item < pixelEnd; item++) {
+                        let is = item - pixelStart;
+                        endArr[item] = oppositePixel[is];
+                    }
+
 
                 }
             }
