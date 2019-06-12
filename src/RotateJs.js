@@ -52,12 +52,9 @@ export default function RotateJs({ bitMapArr, width, height}){
                 { width ? ( <p> { width }px x { height }px </p>) : "" }
                 
                 <br />
-                <br />
-
                 { start && end ? ( <p> { (end - start) * 0.001  } seconds </p>) : "" }
                 <br />
-                <br />
-                <br />
+
                 <canvas ref={doRef} width="460" height="460"  />
             </div>
         </div>

@@ -33,8 +33,6 @@ export default function MyWorker(args) {
                         let is = item - pixelStart;
                         endArr[item] = oppositePixel[is];
                     }
-
-
                 }
             }
             
