@@ -58,7 +58,7 @@ export default function RotateWasm({ bitMapArr, width, height}){
         <div>
             <h2>Rotate using WASM</h2>
             <div>
-                <button onClick={onStartConverting}>Convert</button>
+                <button onClick={onStartConverting}>Rotate !</button>
                 
 
                 { width ? ( <p> { width }px x { height }px </p>) : '' }

@@ -51,7 +51,7 @@ export default function RotateJs({ bitMapArr, width, height}){
         <div>
             <h2>Rotate using JS (WebWorker)</h2>
             <div>
-                <button onClick={onStartConverting}>Convert</button> 
+                <button onClick={onStartConverting}>Rotate !</button> 
 
                 { width ? ( <p> { width }px x { height }px </p>) : "" }
                 

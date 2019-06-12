@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import GitHubButton from 'react-github-btn'
 import styled from 'styled-components'
 import RotateJs from './RotateJs'
 import RotateWasm from './RotateWasm'
@@ -13,6 +14,7 @@ function App() {
   return (
     <AppContainer>
       <Title>Pick and rotate image</Title>
+      <GitHubButton href="https://github.com/renancaraujo/wasm-rotate" data-size="large" aria-label="Star renancaraujo/wasm-rotate on GitHub">Star</GitHubButton>
       <ImagePicker onConvertImage={({ bitMapArr, width, height }) => {
         setBitMapArr(bitMapArr)
         setWidth(width)
@@ -79,7 +81,7 @@ const AppContainer = styled.div`
 
 const Title = styled.h1`
   font-weight: 700
-  margin: 0 10px
+  margin: 10px 16px
 `
 
 const ImagePickerContainer = styled.div`
