@@ -60,6 +60,11 @@ const Rotates = styled.div`
   opacity: ${props => props.show ? 1 : 0.1}
   pointer-events: ${props => props.show ? 'initial' : 'none'}
   flex: 1
+  flex-wrap: wrap
+  & > *{
+    margin: 0 1em
+  }
+    
 `
 
 const AppContainer = styled.div`
@@ -74,7 +79,7 @@ const AppContainer = styled.div`
 
 const Title = styled.h1`
   font-weight: 700
-  margin: 0
+  margin: 0 10px
 `
 
 const ImagePickerContainer = styled.div`

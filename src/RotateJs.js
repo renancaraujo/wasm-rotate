@@ -32,7 +32,8 @@ export default function RotateJs({ bitMapArr, width, height}){
 
         const image = new ImageData(arr, width, height);
 
-        console.log(arr, width, height);
+        canvas.height = height
+        canvas.width = width
         canvas.getContext('2d').putImageData(image, 0, 0)
     }
 
